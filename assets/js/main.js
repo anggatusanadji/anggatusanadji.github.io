@@ -1,9 +1,41 @@
+/*=============== ROTATE LETTER ===============*/
+const rotateLetters = document.querySelectorAll('.rotate-letter, .rotate-letter-m0');
+
+rotateLetters.forEach(letter => {
+  letter.addEventListener('mouseenter', () => {
+    letter.style.transform = 'rotate(-8deg)';
+  });
+
+  letter.addEventListener('mouseleave', () => {
+    letter.style.transform = 'none';
+  });
+}); 
+
+/*=============== CUSTOM CURSOR ===============*/
+var cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+});
+
+
+var typing=new Typed(".text__education", {
+    strings: ["","Informatics Engineering Student","Web Developer"],
+    typeSpeed: 95,
+    backSpeed: 30,
+    loop: true,
+});
+
 /*=============== SHOW MENU ===============*/
+
+
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
     navClose = document.getElementById('nav-close')
 
-/*===== MENU SHOW =====*/
+/*===== MENU SHOW =====*/   
 /* Validate if constant exists */
 if (navToggle) {
     navToggle.addEventListener('click', () => {
@@ -108,6 +140,6 @@ const sr = ScrollReveal({
 
 sr.reveal(`.home__data, .home__social, .contact__container, .footer__container`)
 sr.reveal(`.home__image`, {origin: 'bottom'})
-sr.reveal(`.about__data, .skills__data`, {origin: 'left'})
-sr.reveal(`.about__image, .skills__content`, {origin: 'right'})
+sr.reveal(`.resume__data, .skills__data`, {origin: 'left'})
+sr.reveal(`.about__image, .about__data, .skills__content`, {origin: 'right'})
 sr.reveal(`.services__card, .projects__card`, {interval: 100})
