@@ -11,6 +11,37 @@ rotateLetters.forEach(letter => {
   });
 }); 
 
+/*================= TAGCLOUD ==================*/
+const tagCloudContainer = ".tagcloud";
+const SCREEN_WIDTH = window.innerWidth;
+let radius = 200;
+if(SCREEN_WIDTH > 1024) {
+    radius = 200
+} else if(SCREEN_WIDTH > 800) {
+    radius = 170
+} else if(SCREEN_WIDTH > 500) {
+    radius = 150
+} else {
+    radius = 140
+}
+const texts = [
+    "HTML",
+    "JavaScript",
+    "CSS3",
+    "SCSS",
+    "Figma",
+    "GIT",
+    "WEB",
+    "MySQL",
+    "Bootstrap",
+    "JQuery",
+];
+
+console.log(radius);
+const options = { radius: radius };
+
+TagCloud(tagCloudContainer, texts, options);
+
 /*=============== CUSTOM CURSOR ===============*/
 var cursor = document.querySelector('.cursor');
 

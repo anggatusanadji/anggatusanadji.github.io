@@ -10,7 +10,7 @@
 
    <!--=============== REMIXICONS ===============-->
    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
-
+   
    <!--=============== CSS ===============-->
    <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -138,6 +138,13 @@
                      <image class="home__img" id="imageBlob" width="640" height="925" href="assets/img/logo3.png" />
                   </defs>
                </svg>
+               <div class='eyes'>
+                  <div class="eye">
+                     <span class="eye-lash up"></span>
+                     <span class="eye-retina"></span>
+                     <span class="eye-lash down"></span>
+                  </div>
+               </div>
             </div>
          </div>
       </section>
@@ -233,7 +240,8 @@
                </div>
 
                <div class="skills__content">
-                  <ol class="skills__group">
+                  <div class="tagcloud"></div>
+                  <!-- <ol class="skills__group">
                      <li class="skills__item">HTML & CSS</li>
                      <li class="skills__item">JavaScript</li>
                      <li class="skills__item">Bootstrap</li>
@@ -244,7 +252,7 @@
                      <li class="skills__item">CodeIgniter</li>
                      <li class="skills__item">Laravel</li>
                      <li class="skills__item">Git & GitHub</li>
-                  </ol>
+                  </ol> -->
                </div>
             </div>
          </section>
@@ -372,6 +380,11 @@
                <button type="submit" class="button contact__button">
                   Send Message
                </button>
+               <div class="centered-text">
+                  <div class="line"></div>
+                  <div>or</div>
+                  <div class="line"></div>
+               </div>
                <a href="https://wa.me/6283114803923" target="_blank" class="button contact__button whatsapp">
                   Contact me in Whatsapp <i class="ri-whatsapp-line"></i>
                </a>
@@ -408,7 +421,7 @@
          </div>
 
          <span class="footer__copy">
-            &#169; 2023. All rights reserved
+            &#167; 2023. All rights reserved
          </span>
       </div>
    </footer>
@@ -418,7 +431,14 @@
       <i class="ri-arrow-up-line"></i>
    </a>
 
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!--=============== EYES ===============-->
+   <script src="assets/js/jquery.eyes-follow-mouse.js"></script>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous"></script>
+
+   <!--=============== TAGCLOUD ===============-->
+   <script src="assets/js/tagcloud.min.js"></script>
 
    <!--=============== SCROLLREVEAL ===============-->
    <script src="assets/js/scrollreveal.min.js"></script>
@@ -428,6 +448,7 @@
 
    <!--=============== MAIN JS ===============-->
    <script src="assets/js/main.js"></script>
+   
 </body>
 
 </html>

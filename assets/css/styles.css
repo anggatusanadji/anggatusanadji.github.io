@@ -82,23 +82,6 @@
   margin-right: 5px;
 }
 
-/*=============== CUSTOM CURSOR ===============*/
-.cursor {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  border: 2px solid var(--first-color);
-  transition: all 60ms ease-out;
-  background: white;
-  mix-blend-mode: difference;
-  position: fixed;
-  pointer-events: none;
-  left: 0;
-  top: 0;
-  transform: translate(calc(-50% + 15px), -50%);
-  z-index: 999;
-}
-
 /*=============== BASE ===============*/
 * {
   box-sizing: border-box;
@@ -365,6 +348,7 @@ svg {
 
 .home__image {
   justify-self: center;
+  position: relative;
 }
 
 .home__blob {
@@ -508,7 +492,8 @@ svg {
 }
 
 .skills__content {
-  grid-template-columns: repeat(2, max-content);
+  /* UBAH GRID COLUMN MENJADI 1 JIKA MENGGUNAKAN TAGCLOUD */
+  grid-template-columns: repeat(1, max-content);
   column-gap: 4rem;
   justify-content: center;
   align-items: baseline;
@@ -526,31 +511,6 @@ svg {
 
 .skills__item::marker {
   color: var(--first-color);
-}
-
-.skills.section {
-  /* Set the background image for parallax effect */
-  background: url('../img/bg-skills4.png') no-repeat center center/cover;
-  /* The background will cover the whole container and center it */
-  position: relative;
-  background-attachment: fixed;
-  background-size: cover !important;
-}
-
-/* Add animation for the parallax effect */
-.skills.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Adjust the value to control the intensity of the parallax effect */
-  transform: translateZ(-1px) scale(1.1);
-  background: rgba(0, 0, 0, 0.6); /* You can adjust the background color and opacity here */
-  z-index: -1;
-  /* Disable pointer events so that the content is still clickable */
-  pointer-events: none;
 }
 
 /*=============== SERVICES ===============*/
@@ -797,7 +757,7 @@ svg {
 
 /* For medium devices */
 @media screen and (min-width: 576px) {
-
+  
   .home__container,
   .about__container,
   .skills__container,
@@ -810,9 +770,47 @@ svg {
 }
 
 @media screen and (min-width: 768px) {
+  /*=============== CUSTOM CURSOR ===============*/
+  .cursor {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid var(--first-color);
+    transition: all 60ms ease-out;
+    background: white;
+    mix-blend-mode: difference;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+    z-index: 999;
+  }
+
   .nav__menu {
     width: 55%;
   }
+
+  /* Parallax skills */
+  /* .skills.section {
+    background: url('../img/bg-skills4.png') no-repeat center center/cover;
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover !important;
+  }
+  
+  .skills.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-1px) scale(1.1);
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    pointer-events: none;
+  } */
 
   .home__container,
   .about__container,
@@ -878,6 +876,13 @@ svg {
   }
 }
 
+
+@media screen and (max-width: 1151px) {
+  .about.section {
+    padding-block: 5rem 6rem;
+  }
+}
+
 @media screen and (min-width: 1152px) {
   .rotate-letter {
     display: inline-block;
@@ -904,6 +909,88 @@ svg {
 
   .home__blob {
     width: 500px;
+  }
+
+  /* eyes on logo */
+  .eyes {
+    width: fit-content;
+    position: absolute;
+    bottom: 134px;
+    left: 165px;
+  }
+  .eyes .eye {
+    height: 68px;
+    width: 68px;
+    border-radius: 50%;
+    margin: 5px;
+    background: #faf9f7;
+    box-shadow: 0 0 3px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+  .eyes .eye .eye-retina {
+    transition: 0.2s ease-outs;
+    display: inline-block;
+    width: 60%;
+    height: 60%;
+    background: var(--container-color);
+    border: var(--first-color) 2px solid;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .eyes .eye .eye-retina::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 7%;
+    left: 7%;
+  }
+  
+  .eyes .eye .eye-lash {
+    position: absolute;
+    height: 50%;
+    background: var(--container-color);
+    width: 100%;
+    z-index: 1;
+  }
+  .eyes .eye .up {
+    top: -50%;
+    animation: blinkbottom 2s linear infinite;
+  }
+  .eyes .eye .down {
+    bottom: -50%;
+    animation: blinktop 2s linear infinite;
+  }
+  @keyframes blinkbottom {
+    0% {
+      top: -50%;
+    }
+    5% {
+      top: 0;
+    }
+    10% {
+      top: -50%;
+    }
+  }
+  @keyframes blinktop {
+    0% {
+      bottom: -50%;
+    }
+    5% {
+      bottom: 0;
+    }
+    10% {
+      bottom: -50%;
+    }
   }
 
   .home__content {
@@ -947,7 +1034,12 @@ svg {
   }
 
   .skills__content {
-    column-gap: 8rem;
+    /* column-gap: 8rem; */
+  }
+
+  .skills__content .tagcloud {
+    font-size: var(--h3-font-size);
+    color: white;
   }
 
   .skills__group {
@@ -1025,4 +1117,15 @@ svg {
   .scrollup {
     right: 3rem;
   }
+}
+
+.centered-text {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  flex-grow: 1;
+  border-top: 1px solid #000; /* Change the color as needed */
+  margin: 0 10px; /* Adjust the margin as needed */
 }
